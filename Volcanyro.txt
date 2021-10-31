@@ -123,7 +123,7 @@ MakeGiantPyro(client)
 	CreateTimer(0.0, Timer_Switch, client);
 	SetModel(client, GPYRO);
 	
-	int iHealth = 2250;
+	int iHealth = 3000;
 		
 	int MaxHealth = 175;
 	//PrintToChatAll("MaxHealth %i", MaxHealth);
@@ -139,9 +139,9 @@ MakeGiantPyro(client)
 	SetEntProp(client, Prop_Send, "m_bIsMiniBoss", true);
 	TF2Attrib_SetByName(client, "max health additive bonus", float(iAdditiveHP));
 	TF2Attrib_SetByName(client, "ammo regen", 100.0);
-	TF2Attrib_SetByName(client, "move speed penalty", 0.75);
+	TF2Attrib_SetByName(client, "move speed penalty", 0.85);
 	TF2Attrib_SetByName(client, "damage force reduction", 0.5);
-	TF2Attrib_SetByName(client, "airblast vulnerability multiplier", 0.8);
+	TF2Attrib_SetByName(client, "airblast vulnerability multiplier", 0.4);
 	TF2Attrib_SetByName(client, "health from packs decreased", 0.0);
 	TF2Attrib_SetByName(client, "cancel falling damage", 1.0);
 	TF2Attrib_SetByName(client, "patient overheal penalty", 0.0);
@@ -186,9 +186,9 @@ stock GiveGiantPyro(client)
 		
 		CreateWeapon(client, "tf_weapon_fireaxe", 348, 6, 1, 2, 0);
 
-		CreateHat(client, 30038, 10, 6, false); //Firewall Helmet
-		CreateHat(client, 30053, 10, 6, true); //Googol Glass Eyes
-		CreateHat(client, 951, 10, 6, true);//Rail Spikes
+		CreateHat(client, 30903, 10, 6, false); //Feathered Fiend
+		CreateHat(client, 30902, 10, 6, true); //Deity's Dress
+		CreateHat(client, 316, 10, 6, true); //Pyromancer's Mask
 
 		//int Weapon1 = GetPlayerWeaponSlot(client, TFWeaponSlot_Primary);
 		int Weapon2 = GetPlayerWeaponSlot(client, TFWeaponSlot_Secondary);
@@ -221,8 +221,8 @@ stock GiveGiantPyro(client)
 		if(IsValidEntity(Weapon2))
 		{
 			TF2Attrib_RemoveAll(Weapon2);
-			TF2Attrib_SetByName(Weapon2, "explode_on_ignite", 1); //Damage should be changed match BMod Gas Passer
-			TF2Attrib_SetByName(Weapon2, "effect bar recharge rate increased", 0.6);
+			TF2Attrib_SetByName(Weapon2, "explode_on_ignite", 1.0); //Damage should be changed match BMod Gas Passer
+			TF2Attrib_SetByName(Weapon2, "mult_item_meter_charge_rate", 0.7);
 
 		}
 
@@ -233,7 +233,7 @@ stock GiveGiantPyro(client)
 			TF2Attrib_SetByName(Weapon3, "melee range multiplier", 1.4);
 			TF2Attrib_SetByName(Weapon3, "fire rate penalty", 1.2);
 			TF2Attrib_SetByName(Weapon3, "damage bonus vs burning", 1.35);
-			TF2Attrib_SetByName(Weapon3, "crit vs wet players", 1);
+			TF2Attrib_SetByName(Weapon3, "weapon burn dmg reduced", 0.5);
 			TF2Attrib_SetByName(Weapon3, "killstreak tier", 1.0);
 			
 			//TF2Attrib_SetByName(Weapon2, "apply look velocity on damage", 1500.0);
